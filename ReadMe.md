@@ -48,6 +48,7 @@ You can also copy `.env.example` to `.env` and fill values, then:
 ```bash
 export $(grep -v '^#' .env | xargs)
 ```
+Local runs auto-load `.env` via python-dotenv (app and demo); production should use real environment variables instead.
 
 ### Run the CLI Demo
 ```bash

@@ -17,10 +17,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import aiofiles
+from dotenv import load_dotenv
 
 # Add src to path
 import sys
 sys.path.insert(0, str(Path(__file__).parent / "src"))
+
+# Load environment variables from .env for local runs
+load_dotenv()
 
 from src.coordinator_simple import SimpleAdvancedCoordinator
 from src.utils.config import config

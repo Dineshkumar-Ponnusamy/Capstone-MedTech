@@ -13,6 +13,10 @@ import json
 import sys
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env for local runs
+load_dotenv()
 
 # Add src to path for imports
 sys.path.insert(0, str(Path(__file__).parent / "src"))
