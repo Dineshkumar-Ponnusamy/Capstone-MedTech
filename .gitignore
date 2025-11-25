@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+.pytest_cache/
+*.pyc
+
+# Environments
+venv/
+.env
+
+# OS / tooling
+.DS_Store
+
+# Data and logs
+data/*.json
+logs/
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,78 @@
+# Medical Device Compliance Reviewer Configuration
+
+gemini:
+  # Model selection (gemini-2.0-flash for MVP, gemini-2.0-pro for production)
+  # Prefer setting via environment: GEMINI_MODEL
+  model: "gemini-2.0-flash"
+  # Temperature controls randomness (0.0 = deterministic, 1.0 = creative)
+  temperature: 0.2
+  # Maximum output tokens per response
+  max_output_tokens: 4096
+
+agents:
+  # Maximum characters per document chunk
+  max_chunk_size: 8000
+  # Enable/disable parallel execution
+  parallel_execution: true
+  # Request timeout in seconds
+  timeout_seconds: 60
+
+compliance:
+  # Confidence threshold for human-in-the-loop triggering
+  human_review_threshold: 0.7
+  # Regulatory standards to check
+  regulatory_standards:
+    - "FDA 21 CFR Part 820"
+    - "ISO 13485"
+    - "ISO 14971"
+    - "ISO 62304"
+    - "IEC 62304"
+  
+  # Risk priority settings
+  high_priority_areas:
+    - "safety"
+    - "hazard"
+    - "risk"
+
+logging:
+  # Log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+  level: "INFO"
+  # Log file path
+  file: "logs/compliance_review.log"
+  # Maximum log file size in MB
+  max_size_mb: 10
+  # Number of backup log files to keep
+  backup_count: 5
+
+database:
+  # Optional: database configuration for session persistence
+  # Currently disabled (in-memory only)
+  enabled: false
+  # type: "sqlite"  # or "postgresql"
+  # connection_string: "sqlite:///compliance_reviews.db"
+
+human_loop:
+  # Human review request settings
+  approval_required: true
+  # Default review deadline in hours
+  default_deadline_hours: 24
+  # Escalation rules
+  escalation:
+    safety_critical: 2  # 2 hours
+    high_risk: 8        # 8 hours
+    medium_risk: 24     # 24 hours
+    low_risk: 72        # 72 hours
+
+output:
+  # Output directory for reports
+  report_directory: "data/reports"
+  # Report format (json, pdf, html)
+  formats:
+    - "json"
+    # - "pdf"  # Requires additional dependencies
+    # - "html"  # Requires template engine
+  
+  # Include detailed traces in output
+  include_traces: true
+  # Include agent reasoning in output
+  include_reasoning: true
