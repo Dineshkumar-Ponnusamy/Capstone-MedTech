@@ -67,6 +67,17 @@ uvicorn app:app --reload --host 0.0.0.0 --port 8000
 ```
 Then open http://localhost:8000 (lightweight HTML front-end).
 
+### Screenshots
+
+![Home](docs/screenshots/Home.png)
+
+![Analysis Complete](docs/screenshots/Analysis-Complete.png)
+
+![Dark Theme Recent Jobs](docs/screenshots/Dark%20Theme%20Recent%20Jobs.png)
+
+![Full JSON](docs/screenshots/Full%20JSON.png)
+
+
 ### Tests
 ```bash
 python -m pytest tests -v
